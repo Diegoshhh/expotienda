@@ -1,13 +1,16 @@
 import React from 'react'
-import MainNavigator from './main'
 import {NavigationContainer} from '@react-navigation/native'
+import TabNavigator from './tabs'
+import { SafeAreaView } from "react-native-safe-area-context";
 
 
 const AppNavigator = () => {
   return (
-    <NavigationContainer>
-      <MainNavigator/>
-    </NavigationContainer>
+    <SafeAreaView style={{flex:1}}>
+      <NavigationContainer>
+        <TabNavigator/>
+      </NavigationContainer>
+    </SafeAreaView>
   )
 }
 

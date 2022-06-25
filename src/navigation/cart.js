@@ -1,18 +1,19 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import {CategoriesScreen, ProductDetailsScreen, ProductsScreen} from '../screens/index'
 import { Platform } from 'react-native'
 import { colors } from '../constans/theme.js/colors'
+import { CartScreen } from '../screens'
+
 
 const Stack = createNativeStackNavigator()
 
-const MainNavigator = () => {
+const CartNavigator = () => {
 
   const isAndroid = Platform.OS === 'android';
 
   return (
     <Stack.Navigator 
-      initialRouteName='Categories'
+      initialRouteName='Cart'
       screenOptions={{
         headerStyle:{
           backgroundColor: isAndroid ? colors.primary : colors.secondary,
@@ -24,28 +25,14 @@ const MainNavigator = () => {
       }}
     >
       <Stack.Screen 
-        name='Categories' 
-        component={CategoriesScreen}
+        name='CartScreen' 
+        component={CartScreen}
         options={{
           headerShown:false
         }}
-      />
-      <Stack.Screen 
-        name='Products' 
-        component={ProductsScreen}
-        options={({route}) => ({
-          title: route.params.title
-        })}
-      />
-      <Stack.Screen 
-        name='ProductsDetailsScreen' 
-        component={ProductDetailsScreen}
-        options={({route}) => ({
-          title: route.params.name
-        })}
       />
     </Stack.Navigator>
   )
 }
 
-export default MainNavigator
+export default CartNavigator

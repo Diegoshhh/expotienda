@@ -1,12 +1,29 @@
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, FlatList } from 'react-native'
 import React from 'react'
 import {styles} from './styles'
+import { CategoryItem } from '../../components'
+import { categories } from '../../data/categories'
 
 const CategoriesScreen = ({navigation}) => {
+
+  const onSelected = (item) => {
+    navigation.navigate('Products',{
+      categoryId: item.id,
+      title: item.title,
+    })
+  }
+
+  const renderItem = ({item}) => (
+    <CategoryItem item={item} onSelected={onSelected}/>
+  )
+
   return (
     <View style={styles.container}>
-      <Text style={styles.texto}>CategoriesScreen</Text>
-      <Button title='Go to Products Screen' onPress={() => navigation.navigate('Products')}/>
+      <FlatList
+        data={categories}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   )
 }
