@@ -5,15 +5,14 @@ export const styles = StyleSheet.create({
     container:{
         flex: 1,
         borderRadius:10,
-        margin: 20,
+        margin: 10,
         height: 180,
     },
     containerTouchable:{
         flex: 1,
         borderRadius:10,
-        backgroundColor:colors.white,
         shadowColor: colors.shadow,
-        opacity: 0.26,
+        opacity: 0.96,
         shadowOffset: {width: 0, height:2},
         shadowRadius:6,
         elevation:3,
@@ -22,7 +21,9 @@ export const styles = StyleSheet.create({
         padding: 10,
     },
     title:{
+        color: colors.white,
         fontFamily:'Lato-Black',
-        fontSize:20,
+        fontSize:36,
+        opacity: 1,
     }
 })

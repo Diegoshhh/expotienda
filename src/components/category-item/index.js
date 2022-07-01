@@ -1,18 +1,22 @@
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, ImageBackground } from 'react-native'
 import {styles} from './styles'
 
 const CategoryItem = ({item, onSelected}) => {
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => onSelected(item)}
-        style={{...styles.containerTouchable, backgroundColor: item.color}}
-      >
-        <View>
-            <Text style={styles.title}>{item.title}</Text>
-        </View>
-      </TouchableOpacity>
+      <ImageBackground imageStyle={{borderRadius:10, resizeMode:'cover'}} source={item.imagen} style={{width: '100%', height: '100%'}}>
+
+        <TouchableOpacity
+          onPress={() => onSelected(item)}
+          style={{...styles.containerTouchable}}
+        >
+          <View>
+              <Text style={styles.title}>{item.title}</Text>
+          </View>
+        </TouchableOpacity>
+      </ImageBackground>
     </View>
   )
 }
